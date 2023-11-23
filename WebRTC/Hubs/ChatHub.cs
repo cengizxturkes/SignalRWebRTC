@@ -19,6 +19,13 @@ namespace WebRTC.Hubs
             // Oturumu tüm kullanıcılara bildirin.
             await Clients.All.SendAsync("StartVideoChat", chatSession);
         }
+        public void ProcessImage(string userId, byte[] imageData)
+        {
+            // Görüntüyü işleyin (örneğin, dosyaya kaydedin, ekranda gösterin, vs.)
+
+            // Örneğin, alınan görüntüyü tüm kullanıcılara göndermek için
+            Clients.All.SendAsync("ReceiveImage", userId, imageData);
+        }
         public async void EndVideoChat(string userId, string otherUserId)
         {
             // Oturumu al
